@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <style>
+        body, html {
+            height: 100%;
+            font-family: "Inconsolata", sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            background-image: url(background.png);
+        }
+        
+        .w3-top {
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .w3-bar {
+            background-color: #333;
+        }
+        
+        .w3-bar a {
+            padding: 14px;
+            float: left;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        
+        .w3-bar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        
+        .w3-content {
+            margin-top: 80px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 20px;
+        }
+        
+        .tablink {
+            cursor: pointer;
+        }
+        
+        .menu {
+            display: none;
+        }
+        
+        #company {
+            color: darkcyan;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        
+        .w3-padding-48 {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+        
+        .w3-card {
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+            border-radius: 5px;
+            background-color: white;
+            margin-bottom: 20px;
+        }
+        
+        .w3-card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+        
+        .checkbox-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .checkbox-item {
+            margin-bottom: 10px;
+        }
+        
+        .checkbox-label {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+
+        /* Button styles */
+        .button {
+            display: block;
+            width: 100%;
+            padding: 12px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+
+        /* Hover effect */
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="w3-top">
+        <div class="w3-row w3-padding w3-black">
+            <div class="w3-col s3">
+                <a href="./index.html" class="w3-button w3-block w3-black">HOME</a>
+            </div>
+            <div class="w3-col s3">
+                <a href="./about.html" class="w3-button w3-block w3-black">ABOUT</a>
+            </div>
+            <div class="w3-col s3">
+                <a href="./menu.html" class="w3-button w3-block w3-black">MENU</a>
+            </div>
+            <div class="w3-col s3">
+                <a href="./customer.html" class="w3-button w3-block w3-black">CUSTOMER</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-container" id="menu">
+        <div class="w3-content" style="max-width:700px">
+            <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">THE MENU</span></h5>
+            <div class="w3-row w3-center w3-card w3-padding">
+                <a href="javascript:void(0)" onclick="openMenu(event, 'Eat');" id="myLink">
+                    <div class="w3-col s6 tablink">Eat</div>
+                </a>
+                <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">
+                    <div class="w3-col s6 tablink">Drink</div>
+                </a>
+            </div>
+            <div id="Eat" class="w3-container menu w3-padding-48 w3-card">
+                <ul class="checkbox-list">
+                    <li class="checkbox-item">
+                        <input type="checkbox" id="breadBasket" value="110">
+                        <label class="checkbox-label" for="breadBasket">Bread Basket - Assortment of fresh baked fruit breads and muffins (Price 110)</label>
+                    </li>
+                    <li class="checkbox-item">
+                        <input type="checkbox" id="granola" value="100">
+                        <label class="checkbox-label" for="granola">Honey Almond Granola with Fruits - Natural cereal of honey toasted oats, <br>raisins, almonds and dates (Pesos 100)</label>
+                    </li>
+                    <li class="checkbox-item">
+                        <input type="checkbox" id="waffle" value="150">
+                        <label class="checkbox-label" for="waffle">Belgian Waffle - Vanilla flavored batter with malted flour (Pesos 150)</label>
+                    </li>
+                    <li class="checkbox-item">
+                        <input type="checkbox" id="scrambledEggs" value="300">
+                        <label class="checkbox-label" for="scrambledEggs">Scrambled eggs - Scrambled eggs, roasted red pepper and garlic, <br>with green onions (Pesos 300)</label>
+                    </li>
+                    <li class="checkbox-item">
+                        <input type="checkbox" id="pancakes" value="50">
+                        <label class="checkbox-label" for="pancakes">Blueberry Pancakes - With syrup, butter and lots of berries (Pesos 50)</label>
+                    </li>
+                </ul>
+            </div>
+            <div id="Drinks" class="w3-container menu w3-padding-48 w3-card">
+                <ul class="checkbox-list">
+                    <li class="checkbox-item">
+                        <input type="checkbox" id="coffee" value="50">
+                        <label class="checkbox-label" for="coffee">Coffee - Regular coffee (Pesos 50)</label>
+                    </li>
+                    <li class="checkbox-item">
+                        <input type="checkbox" id="chocolato" value="70">
+                        <label class="checkbox-label" for="chocolato">Chocolato - Chocolate espresso with milk (Pesos 70)</label>
+                    </li>
+                    <li class="checkbox-item">
+                        <input type="checkbox" id="corretto" value="30">
+                        <label class="checkbox-label" for="corretto">Corretto - Whiskey and coffee (Pesos 30)</label>
+                    </li>
+                    <li class="checkbox-item">
+                        <input type="checkbox" id="icedTea" value="20">
+                        <label class="checkbox-label" for="icedTea">Iced tea - Hot tea, except not hot (Pesos 20)</label>
+                    </li>
+                    <li class="checkbox-item">
+                        <input type="checkbox" id="soda" value="30">
+                        <label class="checkbox-label" for="soda">Soda - Coke, Sprite, Fanta, etc. (Pesos 30)</label>
+                    </li>
+                </ul>
+            </div>
+            <button class="button" onclick="purchase()">Purchase</button>
+        </div>
+    </div>
+
+    <script>
+        function openMenu(evt, menuName) {
+            var i, x, tablinks;
+            x = document.getElementsByClassName("menu");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("w3-dark-grey");
+            }
+            document.getElementById(menuName).style.display = "block";
+            evt.currentTarget.firstElementChild.classList.add("w3-dark-grey");
+        }
+        
+        function purchase() {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            var totalPrice = 0;
+            var items = [];
+            checkboxes.forEach(function(checkbox) {
+                totalPrice += parseInt(checkbox.value);
+                items.push(checkbox.labels[0].textContent);
+            });
+            // Redirect to purchase.html with query parameters
+            window.location.href = 'purchase.html?totalPrice=' + totalPrice + '&items=' + JSON.stringify(items);
+        }
+
+        // Automatically select the first tab on page load
+        document.getElementById("myLink").click();
+    </script>
+</body>
+</html>

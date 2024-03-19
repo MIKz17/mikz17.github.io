@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchased</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            background-image: url(background.png);
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        #purchasedItems {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        #purchasedItems li {
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        #totalPrice {
+            font-weight: bold;
+            color: #333;
+            display: block;
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        #totalPrice span {
+            font-size: 1.2em;
+            color: #ff5733; /* Highlight total price with a different color */
+        }
+
+        .button {
+            display: block;
+            width: 100%;
+            padding: 12px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Purchased Items</h1>
+        <ul id="purchasedItems"></ul>
+        <h2 id="totalPrice">Total Price: <span></span> pesos</h2>
+        <button id="purchaseButton" class="button">Purchase</button>
+    </div>
+
+    <script>
+        // Function to parse query parameters from URL
+        function getQueryParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Get total price and items from query parameters
+        var totalPrice = getQueryParameter('totalPrice');
+        var items = JSON.parse(getQueryParameter('items'));
+
+        // Display total price
+        document.querySelector('#totalPrice span').textContent = totalPrice;
+
+        // Display purchased items
+        var purchasedItemsList = document.getElementById('purchasedItems');
+        items.forEach(function(item) {
+            var listItem = document.createElement('li');
+            listItem.textContent = item;
+            purchasedItemsList.appendChild(listItem);
+        });
+
+        // Add event listener to the Purchase button
+        document.getElementById('purchaseButton').addEventListener('click', function() {
+            // Redirect to transaction page with price amount appended to the URL
+            var priceAmount = encodeURIComponent(totalPrice); // Encode the price amount
+            window.location.href = 'transaction.html?price_amount=' + priceAmount;
+        });
+
+        document.getElementById('purchaseButton').addEventListener('click', function() {
+            // Redirect to transaction page with price amount appended to the URL
+            var priceAmount = encodeURIComponent(totalPrice); // Encode the price amount
+            window.location.href = 'transaction.html?price_amount=' + priceAmount;
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+    // Function to parse query parameters from URL
+    function getQueryParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    // Get the price amount from the URL
+    var priceAmount = getQueryParameter('price');
+
+    // Display the price in the input field
+    document.getElementById('price').value = priceAmount;
+});
+
+        
+    </script>
+</body>
+</html>

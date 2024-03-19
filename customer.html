@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Service</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <style>
+        body, html {
+            height: 100%;
+            font-family: "Inconsolata", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .w3-top {
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        #company{
+            color: darkcyan;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .w3-container{
+            background-image: url(background.png);
+            padding-top: 64px;
+        }
+
+        .confirmation-message {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border-radius: 8px;
+            margin: 0 auto;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="w3-top">
+        <div class="w3-row w3-padding w3-black">
+            <div class="w3-col s3">
+                <a href="./index.html" class="w3-button w3-block w3-black">HOME</a>
+            </div>
+            <div class="w3-col s3">
+                <a href="./about.html" class="w3-button w3-block w3-black">ABOUT</a>
+            </div>
+            <div class="w3-col s3">
+                <a href="./menu.html" class="w3-button w3-block w3-black">MENU</a>
+            </div>
+            <div class="w3-col s3">
+                <a href="./customer.html" class="w3-button w3-block w3-black">CUSTOMER</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-container" id="where">
+        <div class="w3-content" style="max-width:700px">
+            <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">Customer Service</span></h5>
+            <p>Find us at 041 Zone 10, Cagayan de Oro, Misamis Oriental.</p>
+            <p><span class="w3-tag">Concern</span> tell me something about our foods</p>
+            <form action="/action_page.php" onsubmit="submitForm(event)">
+                <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Your Name" required name="Name"></p>
+                <p><input class="w3-input w3-padding-16 w3-border" type="email" placeholder="Your Email" required name="Email"></p>
+                <p><input class="w3-input w3-padding-16 w3-border" type="tel" placeholder="Your Phone Number" required name="Phone"></p>
+                <p><textarea class="w3-input w3-padding-16 w3-border" placeholder="Your Message / Special Requirements" required name="Message" rows="4"></textarea></p>
+                <p><button class="w3-button w3-black" type="submit">SEND MESSAGE</button></p>
+            </form>
+            <p id="confirmationMessage" class="confirmation-message" style="font-size: 50px; background-color:rgba(53, 211, 211, 0.692)">Your message has been sent to Be Cafe. Thank you and God bless!</p>
+        </div>
+    </div>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Display confirmation message
+            document.getElementById("confirmationMessage").style.display = "block";
+        }
+    </script>
+</body>
+</html>
